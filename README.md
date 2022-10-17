@@ -77,7 +77,7 @@ este Script permite co
 <div>
 <p style = 'text-align:center;'>
 <iframe width="600" height = "420"
-src="https://youtube.com/shorts/1jJsIieK1R4">
+src="https://www.youtube.com/watch?v=1jJsIieK1R4">
 </iframe>
 </div>
 </p>
@@ -86,7 +86,7 @@ src="https://youtube.com/shorts/1jJsIieK1R4">
 
 
 <iframe width="600" height = "420"
-src="https://www.youtube.com/embed/qKf2EwInKbA">
+src="https://www.youtube.com/watch?v=1jJsIieK1R4">
 </iframe>
 
 ## Toolbox
