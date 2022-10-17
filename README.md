@@ -1,11 +1,19 @@
 # Laboratorio 4 de Robotica 2022
 
+<div>
+<p style = 'text-align:right;'>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpw7VUCd_3cj1avB_6YTyQgX4e7nM5mVESyeb72_sLYUPdHkqi1yaDwMyR_tryIhLiRzM&usqp=CAU" alt="Logo UN" width="300px">
+</p>
+</div>
+
 Por:
 
 *Luis Alberto Chavez* 
 
 
 *Camilo Pineda Correa*
+
+
 
 
 En este documento se explica como se configura y se ejecuta el servicio de conexión entre un PINCHERx y ROS instalado en Ubuntu mediante Matlab y Python
@@ -18,7 +26,7 @@ Las dimenciones medidas sobre los robots al igual que las disposiciones de los e
 
 ![Modelo del robot PhantomX Pincher AX-12 ](https://github.com/Rocosso/lab4_Robotica/blob/main/Imagenes/DH_Pincher.png)
 
-estos modelosson independientes del software empleado, sea MatLab, ROS, Python.
+Estos modelos son independientes del software empleado, sea MatLab, ROS, Python.
 
 ## Parametros DH
 
@@ -33,6 +41,8 @@ Los parametros de DH-standard para el robot:
 
 
 ## ROS
+
+![ROBOT OPERATING SYSTEM](https://www.canonicalrobots.com/images/cursos/ros-logo.png)
 
 Se ha creado un script de python que permite realizar la conexión con ROS y y permite generar el movimiento de cada articuación entre dos posiciones, la primera es el home y la segunda es la psicion de target ue se ha planteado y se definen empleando el nombre de cada articulacion y sus valores en bits.
 
@@ -50,6 +60,7 @@ Se ha creado un script de python que permite realizar la conexión con ROS y y p
        * Objective: 32,6° (400 bits)
 
 este Script permite co
+
 ## Explicacion de código
 
 ## Video
