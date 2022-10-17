@@ -36,16 +36,16 @@ Los parametros de DH-standard para el robot:
 
 Se ha creado un script de python que permite realizar la conexión con ROS y y permite generar el movimiento de cada articuación entre dos posiciones, la primera es el home y la segunda es la psicion de target ue se ha planteado y se definen empleando el nombre de cada articulacion y sus valores en bits.
 
-    *Waist
+    * Waist
        * Home: 0° (512 bits)
        * Objective: 32,6° (400 bits)
-    *Shoulder
+    * Shoulder
        * Home: 0° (512 bits)
        * Objective: 32,6° (400 bits)
-    *Elbow
+    * Elbow
        * Home: 0° (512 bits)
        * Objective: 32,6° (400 bits)
-    *Wrist
+    * Wrist
        * Home: 0° (512 bits)
        * Objective: 32,6° (400 bits)
 
