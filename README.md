@@ -2,10 +2,10 @@
 
 Por:
 
-Luis Alberto Chavez 
+*Luis Alberto Chavez* 
 
 
-Camilo Pineda Correa
+*Camilo Pineda Correa*
 
 
 En este documento se explica como se configura y se ejecuta el servicio de conexión entre un PINCHERx y ROS instalado en Ubuntu mediante Matlab y Python
@@ -36,18 +36,18 @@ Los parametros de DH-standard para el robot:
 
 Se ha creado un script de python que permite realizar la conexión con ROS y y permite generar el movimiento de cada articuación entre dos posiciones, la primera es el home y la segunda es la psicion de target ue se ha planteado y se definen empleando el nombre de cada articulacion y sus valores en bits.
 
-    Waist
-        Home: 0° (512 bits)
-        Objective: 32,6° (400 bits)
-    Shoulder
-        Home: 0° (512 bits)
-        Objective: 32,6° (400 bits)
-    Elbow
-        Home: 0° (512 bits)
-        Objective: 32,6° (400 bits)
-    Wrist
-        Home: 0° (512 bits)
-        Objective: 32,6° (400 bits)
+    *Waist
+       * Home: 0° (512 bits)
+       * Objective: 32,6° (400 bits)
+    *Shoulder
+       * Home: 0° (512 bits)
+       * Objective: 32,6° (400 bits)
+    *Elbow
+       * Home: 0° (512 bits)
+       * Objective: 32,6° (400 bits)
+    *Wrist
+       * Home: 0° (512 bits)
+       * Objective: 32,6° (400 bits)
 
 este Script permite co
 ## Explicacion de código
