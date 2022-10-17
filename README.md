@@ -74,27 +74,11 @@ este Script permite co
 
 
 
-<div>
-<p style = 'text-align:center;'>
-<iframe width="600" height = "420"
-src="https://www.youtube.com/watch?v=1jJsIieK1R4">
-</iframe>
-</div>
-</p>
-
-11121312313132131231
 
 
-<iframe width="600" height = "420"
-src="https://www.youtube.com/watch?v=1jJsIieK1R4">
-</iframe>
+[![Watch the video](https://github.com/Rocosso/lab4_Robotica/blob/main/Imagenes/Video.png)](https://www.youtube.com/watch?v=1jJsIieK1R4)
 
 
-[![Watch the video](https://www.youtube.com/watch?v=1jJsIieK1R4/hqdefault.jpg)](https://www.youtube.com/watch?v=1jJsIieK1R4)
-
-
-https://img.youtube.com/vi/<VIDEO ID>/maxresdefault.jpg
-https://img.youtube.com/vi/<VIDEO ID>/hqdefault.jpg
 
 ## Toolbox
 
