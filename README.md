@@ -90,8 +90,11 @@ src="https://www.youtube.com/watch?v=1jJsIieK1R4">
 </iframe>
 
 
-[![Watch the video](https://www.youtube.com/watch?v=1jJsIieK1R4/maxresdefault.jpg)](https://www.youtube.com/watch?v=1jJsIieK1R4)
+[![Watch the video](https://www.youtube.com/watch?v=1jJsIieK1R4/hqdefault.jpg)](https://www.youtube.com/watch?v=1jJsIieK1R4)
 
+
+https://img.youtube.com/vi/<VIDEO ID>/maxresdefault.jpg
+https://img.youtube.com/vi/<VIDEO ID>/hqdefault.jpg
 
 ## Toolbox
 
