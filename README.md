@@ -2,7 +2,7 @@
 
 <div>
 <p style = 'text-align:right;'>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpw7VUCd_3cj1avB_6YTyQgX4e7nM5mVESyeb72_sLYUPdHkqi1yaDwMyR_tryIhLiRzM&usqp=CAU" alt="Logo UN" width="300px">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpw7VUCd_3cj1avB_6YTyQgX4e7nM5mVESyeb72_sLYUPdHkqi1yaDwMyR_tryIhLiRzM&usqp=CAU" alt="Logo UN" width="250px">
 </p>
 </div>
 
@@ -13,6 +13,12 @@ Por:
 
 *Camilo Pineda Correa*
 
+
+<div>
+<p style = 'text-align:left;'>
+<img src="https://static.generation-robots.com/14801-product_cover/phantomx-pincher-robot-arm-kit-with-ax-12-actuators-and-adapter-for-leo-rover-non-assembled.jpg" alt="PhantomX_Pincher_ax-12" width="250px">
+</p>
+</div>
 
 
 
@@ -72,6 +78,9 @@ este Script permite co
 ## Matlab + ROS + Toolbox
 
 ## Plot del Robot
+
+![plot robot empleando PeterCorke ToolBox9.10 en MatLab](https://github.com/Rocosso/lab4_Robotica/blob/main/Imagenes/plot_PhantomX_Pincher_ax-12.png)
+
 
 ## Conexión con ROS
 
