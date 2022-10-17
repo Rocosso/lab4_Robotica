@@ -2,7 +2,9 @@
 
 Por:
 
-Luis Alberto Chavez
+Luis Alberto Chavez 
+
+
 Camilo Pineda Correa
 
 
@@ -14,7 +16,7 @@ En este documento se explica como se configura y se ejecuta el servicio de conex
 
 Las dimenciones medidas sobre los robots al igual que las disposiciones de los ejes para cada articulación se muestran a continuación. 
 
-![Script](/imagenes/DH_Pincher.png)
+![Modelo del robot PhantomX Pincher AX-12 ](https://github.com/Rocosso/lab4_Robotica/blob/main/Imagenes/DH_Pincher.png)
 
 estos modelosson independientes del software empleado, sea MatLab, ROS, Python.
 
