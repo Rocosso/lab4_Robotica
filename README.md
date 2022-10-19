@@ -225,29 +225,20 @@ A continuación podra ver el video del robot en movimiento dando click en la im�
 ## Toolbox
 
 Se empleó el Toolbox del profesor Peter Corke para definir y visualizar los parametros del robot, asi como para mostrar el modelo , se definieron entonces para cada articulacion los parametros de DH y se definieron basados en las mediciones que se realizaron a los robots PhantomX pincher AX-12.
+Luego se realiza un llamado al metodo *Tool* para lograr la orientacion de la muñeca; y finalmente se gráfica empleando el metodo *Teach*, el cual permite variar los parametros del PhantomX mediante una interfaz gráfica.
+
+
 ###
 ``` python
-l = [14.5, 10.7, 10.7, 9]; % Links lenght
-% Robot Definition RTB
+l = [14, 10.6, 10.7, 11]; % Longitud de eslabones
+% Definicion de links y robot
 L(1) = Link('revolute','alpha',pi/2,'a',0,   'd',l(1),'offset',0,   'qlim',[-3*pi/4 3*pi/4]);
 L(2) = Link('revolute','alpha',0,   'a',l(2),'d',0,   'offset',pi/2,'qlim',[-3*pi/4 3*pi/4]);
 L(3) = Link('revolute','alpha',0,   'a',l(3),'d',0,   'offset',0,   'qlim',[-3*pi/4 3*pi/4]);
 L(4) = Link('revolute','alpha',0,   'a',0,   'd',0,   'offset',0,   'qlim',[-3*pi/4 3*pi/4]);
 PhantomX = SerialLink(L,'name','Px');
-```
-
-Una vez definidos los parametros DH del Robot se continuó con el llamado del metodo *Tool* para lograr la orientacion de la muñeca.
-
-###
-``` python
-% Tool orientation
+% Orientacion de la herramienta
 PhantomX.tool = [0 0 1 l(4); -1 0 0 0; 0 -1 0 0; 0 0 0 1];
-
-```
-Finalmente se gráfica con la opción de variar los parametros del PhantomX mediante la interfaz gráfica empleando el metodo *Teach*
-
-
-```
 PhantomX.teach()
 ```
 
