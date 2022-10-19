@@ -1,3 +1,12 @@
+# Paquete preconstruido PXROBOT
+px_robot
+
+
+
+
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +136,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+
+
