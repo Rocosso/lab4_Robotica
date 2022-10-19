@@ -86,7 +86,7 @@ Para que el script funciones primero hay que correr los siguiente comandos de RO
 Para ejecutar el script se debe ingresar a la carpeta del entorno catkin que se este manejando y ejecutar el script de launch del paquete.
 
 A continuación se ingresa la carpeta de scripts del paquete px_robot y finalmente se ejecuta el archivo python.
-###
+
 ```python
 roslaunch px_robot px_rviz_dyna.launch
 
@@ -100,7 +100,7 @@ python boardOperation.py
 
 En esta sección del código se sealiza la importacion de librerias para poder operar. 
 
-###
+
 ``` python
 import rospy
 import numpy
@@ -112,7 +112,7 @@ TERMIOS = termios
 
 posteriormente se definen las funciones, la primera esta esperando todo el tiempo para recibir la indicacion de que hacer preparada para enviar el mensaje de posicionamiento con los datos que recibe.
 
-###
+
 ``` python
 def jointCommand(command, id_num, addr_name, value, time):
     rospy.wait_for_service('dynamixel_workbench/dynamixel_command')                         #Espera la disponibilidad del servicio
@@ -132,7 +132,7 @@ A continuacion la siguiente funcion definida es *getkey*  Esta funcion lee y ret
 
 
 
-###
+
 ``` python
 def getkey():
     fd = sys.stdin.fileno()
@@ -154,7 +154,7 @@ def getkey():
 
 Esta funcion imprime el nombre y numero de articulacion que se esta manipulando actualmente.
 
-###
+
 ``` python
 def printJoint(numJoint):
     if numJoint == 1:
@@ -172,7 +172,7 @@ def printJoint(numJoint):
 
 
 Esta es la funcion main 
-###
+
 ``` python
 if __name__ == '__main__':
     joints = [[1, 600, 512], [2, 550, 512], [3, 650, 512], [4, 700, 512],[5, 0, 512]]       #Define un arreglo con numero de articulacion, posicion objetivo y posicion home
@@ -228,7 +228,7 @@ Se empleó el Toolbox del profesor Peter Corke para definir y visualizar los par
 Luego se realiza un llamado al metodo *Tool* para lograr la orientacion de la muñeca; y finalmente se gráfica empleando el metodo *Teach*, el cual permite variar los parametros del PhantomX mediante una interfaz gráfica.
 
 
-###
+
 ``` python
 l = [14, 10.6, 10.7, 11]; % Longitud de eslabones
 % Definicion de links y robot
@@ -243,24 +243,87 @@ PhantomX.teach()
 ```
 
 ## Conexión Matlab 
+Para la conexión desde Matlab se genero el siguiente script, que primero realiza la conexión Matlab-Ros a través de *rosinit* inicializando el nodo principal. Ahora relizaremos la comunicación con ayuda de los servicios de dynamixel motors, por lo que se hace necesario crear un cliente, el cual maneja especificamente el servicio *dynamixel_workbench/dynamixel_command* y a su vez el mensaje que le será enviado, cuyos argumentos son definidos correspondientemente a *AddrName*, *Id*, *Value*, para movimiento, número de articulacion y valor de este.
 
-###
+
 ``` python
-velSub = rossuscriber("turtle1/pose","turtlesim/Pose"); 
+%%
+rosinit;
+%%
+motorSvcClient = rossvcclient('dynamixel_workbench/dynamixel_command');%Client creation
+motorCommandMsg = rosmessage(motorSvcClient);%Message creation
+%%
+motorCommandMsg.AddrName = "Goal_Position";
+motorCommandMsg.Id = 1;
+motorCommandMsg.Value = 400;
+call(motorSvcClient,motorCommandMsg); %Service call
 ```
 
 ## Matlab + ROS + Toolbox
+Teniendo en cuenta los 3 puntos desarrollados anteriomente (Comunicación Matlab-ROS, movimiento de robot PhantomX y graficación del mismo), se genero 1 unico script que los ejecuta conjuntamente. Este script se encuentra en la carpeta Matlab de px_robot, con el nombre de "Conect_model_move".
 
 ## Plot del Robot
 
 ![plot robot empleando PeterCorke ToolBox9.10 en MatLab](https://github.com/Rocosso/lab4_Robotica/blob/main/Imagenes/plot_PhantomX_Pincher_ax-12.png)
 
+Nuevamente se definen las articulaciones con ayuda de *Link* y se genera el robot
 
-## Conexión con ROS
-
-###
 ``` python
-velSub = rossuscriber("turtle1/pose","turtlesim/Pose"); 
+%%Grafica del robot
+l = [14, 10.6, 10.7, 11]; % Longitud de eslabones
+% Definicion de links y robot
+L(1) = Link('revolute','alpha',pi/2,'a',0,   'd',l(1),'offset',0,   'qlim',[-3*pi/4 3*pi/4]);
+L(2) = Link('revolute','alpha',0,   'a',l(2),'d',0,   'offset',pi/2,'qlim',[-3*pi/4 3*pi/4]);
+L(3) = Link('revolute','alpha',0,   'a',l(3),'d',0,   'offset',0,   'qlim',[-3*pi/4 3*pi/4]);
+L(4) = Link('revolute','alpha',0,   'a',0,   'd',0,   'offset',0,   'qlim',[-3*pi/4 3*pi/4]);
+PhantomX = SerialLink(L,'name','Px');
+PhantomX.tool = [0 0 1 l(4); -1 0 0 0; 0 -1 0 0; 0 0 0 1];
+ws = [-50 50];
+```
+
+Luego de esto, teniendo las poses solicitadas, se grafica el robot con la herramenta *plot*, las poses son almacenadas en una matriz *q*.
+
+``` python
+% Graficar robot
+q = [0, 0, 0, 0, 0; 
+    -20, 20, -20, 20, 0;
+     30,-30, 30, -30, 0;
+    -90, 15, -55, 17, 0;
+    -90, 45, -55, 45, 10]
+q_rad = deg2rad(q);
+pose = 1;
+PhantomX.plot(q_rad(pose,1:4),'notiles','noname');
+hold on
+trplot(eye(4),'rgb','arrow','length',15,'frame','0')
+axis([repmat(ws,1,2) 0 60])
+% Dibujar Frames
+M = eye(4);
+for i=1:PhantomX.n
+    M = M * L(i).A(q_rad(i));
+    trplot(M,'rgb','arrow','frame',num2str(i),'length',12)
+end
+```
+
+## Conexión con ROS y movimiento
+
+Nuevamente se implementa lo desarrollado para esta comunicación con la conexión a través de *rosinit*, la creación de un cliente para el servicio *dynamixel_workbench/dynamixel_command* y la variación ciclica de los argumentos *Id*, *Value*, para movimiento, a excepcion de *AddrName*, el cual se debe mantener en "Goal_Position" para generar el movimiento. Además se cuenta con una funcion extra "mapfun", la cual realiza el mapeo entre valores en bits y ángulo de rotación, funcion agregada en la misma carpeta.
+
+``` python
+%% Conexion con ROS
+%rosinit('http://172.17.0.1:11311');
+rosinit;
+%rostopic list
+%rostopic info /tf
+%%
+motorSvcClient = rossvcclient('dynamixel_workbench/dynamixel_command');%Client creation
+motorCommandMsg = rosmessage(motorSvcClient);%Message creation
+%% Ejecucion de movimiento
+motorCommandMsg.AddrName = "Goal_Position";
+for i=1:length(q)
+    motorCommandMsg.Id = i;
+    motorCommandMsg.Value = round(mapfun(q(pose,i),-150,150,0,1023));
+    call(motorSvcClient,motorCommandMsg);
+end
 ```
 
 ## Conclusiones
