@@ -327,4 +327,6 @@ end
 ```
 
 ## Conclusiones
-
+* Matlab es una herramienta muy útil para la implementación con ROS, pues a parte de realizar la conexion y comunicacion con este, cuenta con Toolbox, especificamente el de Peter Corke, que aportan una graficación de apoyo para el robot trabajado, definiendolo a partir de sus parametros DH. Y a pesar de no ser desarrollado en su totalidad en Python, cabe resaltar que este tambien cuenta con herramientas similares que permiten desarrollar el mismo ejercicio, incluyendo la herramienta de graficación.
+* El trabajo con el brazo robotico PhantomX permite un acercamiento a la manipulación de estos robot a una escala academica, pequeña y sencilla que permite entender mejor su operacion, modelado y trabajo con este tipo de robots.
+* ROS es una herramienta importante que estandariza el trabajo con robots, por lo que facilita que la experiencia con alguno especifico sea una buena base para entender otros, incluso de nivel industrial.
